@@ -618,6 +618,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1885691642}
+    - target: {fileID: 1046550175369697769, guid: a550f709f53f3504fb9369d367235c9f, type: 3}
+      propertyPath: chaseRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4849574763678159515, guid: a550f709f53f3504fb9369d367235c9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
