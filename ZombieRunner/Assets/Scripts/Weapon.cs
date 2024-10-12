@@ -6,6 +6,8 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera myCam;
     [SerializeField] float range = 100f;
+    EnemyHealth enemyHealthScript;
+    [SerializeField] float weaponDamage = 1f;
 
     void Update()
     {
@@ -20,7 +22,15 @@ public class Weapon : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(myCam.transform.position, myCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.collider.name);
+            enemyHealthScript = hit.transform.GetComponent<EnemyHealth>();
+            if(enemyHealthScript != null ) 
+            {
+                enemyHealthScript.TakeDamage(weaponDamage);
+            }
+        }
+        else
+        {
+            return;
         }
     }
 }
