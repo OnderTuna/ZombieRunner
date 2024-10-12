@@ -589,6 +589,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295828571}
   m_CullTransparentMesh: 1
+--- !u!20 &1362934588 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1920039124940912464, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 2081213236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1778256574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8769232669356607609, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 2081213236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1778256577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778256574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c068c751770c32409b2633b22293b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCam: {fileID: 1362934588}
+  range: 100
 --- !u!1 &1822319566
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +705,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8769232669356607609, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1778256577}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1001 &2417450557188512397
 PrefabInstance:
