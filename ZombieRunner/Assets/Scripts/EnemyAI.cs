@@ -11,10 +11,13 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent myAI;
     private float distance = Mathf.Infinity;
     bool isProvoked = false;
-    
+    Animator enemyAnim;
+    [SerializeField] private float turnSpeed = 5f;
+
     void Start()
     {
         myAI = GetComponent<NavMeshAgent>();
+        enemyAnim = GetComponent<Animator>();
     }
     
     void Update()
@@ -33,7 +36,9 @@ public class EnemyAI : MonoBehaviour
 
     private void EngageTarget()
     {
-        if(distance <= myAI.stoppingDistance)
+        FaceTarget();
+
+        if (distance <= myAI.stoppingDistance)
         {
             Attacktarget();
         }
@@ -46,11 +51,20 @@ public class EnemyAI : MonoBehaviour
 
     private void Attacktarget()
     {
-        Debug.Log($"{name} has seeked and is destroying {target.name}");
+        enemyAnim.SetBool("Attack", true);
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     private void ChaseTarget()
     {
+        enemyAnim.SetBool("Attack", false);
+        enemyAnim.SetTrigger("Move");
         myAI.SetDestination(target.transform.position);
     }
 
@@ -59,4 +73,6 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
+
+    
 }
